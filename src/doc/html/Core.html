@@ -1,0 +1,100 @@
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="robots" content="all" />
+		<meta name="author" content="w3school.com.cn" />
+		<link rel="stylesheet" type="text/css" href="css/c1.css" />
+		
+		<title>Core</title>
+	</head>
+	
+	
+	<body>
+		<div class="wapper">
+			<div class="main-content">
+					<h1>Core 类</h1>
+					<div class="content-body">
+					<!-- 功能信息  -->
+							<table class="table-info">
+								<tr>
+										<th>功能描述</th>
+										<td>Video 控制初始化 播放， 暂停， 停止等逻辑</td>
+								</tr>
+								<tr>
+										<th>版本</th>
+										<td>SDK4.5</td>
+								</tr>
+								<tr>
+										<th>修改记录</th>
+										<td>2014年12月29日 修改暂停逻辑</td>
+								</tr>
+							<table>
+							
+							<!-- 接口列表  -->
+							<table class="table-info table-info-interface">
+								<tr>
+										<th style="width:30%;">方法名称</th>
+										<th style="width:10%;">作用域</th>
+										<th >描述</td>
+								</tr>
+								<tr>
+										<td><strong>init</strong>(playerProxy:IPlayerProxy, w:Number, h:Number)</th>
+										<td>public</th>
+										<td>初始化</td>
+								</tr>
+								<tr>
+										<td><strong>createVideoList()</strong>()</th>
+										<td>private</th>
+										<td>创建VIDEO 显示对象</td>
+								</tr>
+								<tr>
+										<td><strong>onPlayStart</strong>(e:LiveVideoEvent)()</th>
+										<td>private</th>
+										<td>播放状态/td>
+								</tr>
+								<tr>
+										<td><strong>setAdjustParameter</strong>( contrast : Number , bright : Number , saturation : Number )</th>
+										<td>public</th>
+										<td>对比度 亮度 饱和度</td>
+								</tr>
+								
+								<tr>
+										<td><strong>play</strong>()</th>
+										<td>public</th>
+										<td>播放</td>
+								</tr>
+								
+								<tr>
+										<td><strong>setWH</strong>(w:Number, h:Number)</th>
+										<td>public</th>
+										<td>设置播放器宽 高</td>
+								</tr>
+								
+								<tr>
+										<td><strong>close</strong>()</th>
+										<td>public</th>
+										<td>关闭播放器 清除流  卸载事件监听</td>
+								</tr>
+								
+								
+							<table>
+							
+							<div class="content-desc">
+								<p>Core 中的暂停功能实现过于复杂,是使用了两个Video 进行切换,实现和维护过于繁琐！ 需要修改</p>
+							</div>
+							
+					</div>
+					
+					
+					
+					
+					
+			</div>
+				
+		</div>
+	
+	</body>
+	
+	
+	
+</html>

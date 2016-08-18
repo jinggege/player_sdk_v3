@@ -1,0 +1,182 @@
+body,div,ul,li{margin:0; padding:0; display:block;}
+
+
+
+ul,li{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
+.lf-container
+{
+	width:100%;
+	height:100px;
+}
+
+.lf-container .lf-nav-bar
+{
+	width:800px;
+	height:30px;
+	margin: 0 0 0 5px;
+	font-size:12px;
+	background-color:#CCCCCC;
+}
+
+.lf-container .lf-nav-bar span
+{
+	font-weight:bold;
+	display:block;
+	line-height:30px;
+}
+
+
+.lf-container .lf-nav-bar .roomty-ul li
+{
+	float:left;
+	line-height:30px;
+	font-weight:bold;
+	color:#E27575;
+}
+
+
+.lf-container .lf-nav-bar .lf-roomid-input
+{
+	width:70px;
+	height:20px;
+	margin: 0 0 0 10px;
+}
+
+
+
+.lf-container .lf-video-container
+{
+	width:800px;
+	height:450px;
+	
+	border:1px;
+	border-radius:5px;
+	margin:0 0 0 5px;
+	background-color:#CCCCCC;
+}
+
+.lf-container .lf-video-container .lf-video
+{
+	width:800px;
+	height:450px;
+	background-color:#999999;
+	margin:auto;
+}
+
+
+.lf-container .lf-video-control
+{
+	width:800px;
+	text-align:left;
+	background-color:#f2f2f2;
+	margin:5px 0 0 5px;
+}
+
+.btn
+{
+	width:80px;
+	height:25px;
+	color:#FFFFFF;
+	font-size:12px;
+	border:1px;
+	border-radius:3px;
+	background-color:#E27575;
+}
+
+.lf-container .lf-video-control .btn:hover
+{
+	background-color:#9E3F3F;
+}
+
+.lf-chat
+{
+	width:800px;
+	height:80px;
+	margin:0;
+}
+
+
+.lf-chat .lf-chat-control
+{
+	width:400px;
+	height:50px;
+	margin: 10px 0 0 5px;
+	float:left;
+	border:2px solid #FFFFFF;
+	border-radius:3px;
+	
+}
+
+.lf-chat .lf-chat-control ul
+{
+	width:300px;
+	margin:0;
+	padding:0;
+}
+
+.lf-chat .lf-chat-control li
+{
+	float:left;
+	font-size:12px;
+}
+
+
+.lf-chat .lf-barrage-set
+{
+	width:245px;
+	height:60px;
+	float:left;
+	margin: 5px 0 0 10px;
+	border:2px solid #FFFFFF;
+	border-radius:3px;
+}
+
+.lf-chat .lf-barrage-set ul
+{
+	margin:0;
+	padding:0;
+	height:22px;
+	
+}
+
+.lf-chat .lf-barrage-set li{
+	font-size:12px;
+	float:left;
+}
+
+
+.lf-chat .lf-barrage-set  span
+{
+	font-weight:bold;
+}
+
+.barrage-color .c-1
+{
+	color:#EE00EE;
+}
+
+.barrage-color .c-2
+{
+	color:#EEB422;
+}
+
+.barrage-color .c-3
+{
+	color:#3A5FCD;
+}
+
+
+.lf-sendgift
+{
+	width:800px;
+	height:30px;
+	background-color:#000000;
+}
+
+

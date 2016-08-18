@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+
+    <head>
+        <title>${title}</title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" type="text/css" href="res/css/main.css"/>
+		<script type="text/javascript" src="res/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript" src="res/js/api.js"></script>
+              
+    </head>
+	
+    <body onload="onLoad()">
+    
+    
+    <div class="lf-container">
+		<div class="lf-nav-bar">
+				<ul class="roomty-ul">
+					<li><span>房间类型：</span></li>
+					<li class="roomtype" > <input type="radio" name="roomtype"  value="0"  >秀场</input></li>
+					<li class="roomtype" > <input type="radio" name="roomtype"  value="2"   checked="checked">LiveHouse</input></li>
+				</ul>
+			<input  class="lf-roomid-input" id="lf-roomid-input" type="text" value="5445"></input>
+			<button  class="btn" id="btnCreatVideo" type="button">创建</button>
+		</div>
+	
+    	<div id="lf-video-container" class="lf-video-container">
+		   <div id="lf-video" class="lf-video"> </div>
+		</div>
+		  
+		<div class="lf-video-control">
+	        <button  class="btn" id="btnPlay" type="button">开播</button>
+	        <button  class="btn" id="btnStop" type="button">停止</button>
+        <div>
+        
+        
+        <div class="lf-chat">
+			<div class="lf-chat-control">	
+				<ul>
+					<li> <input type="radio" name="barrageStatus" value="1" /> 开启聊天弹幕</li>
+					<li> <input type="radio" name="barrageStatus" value="0"  checked="checked" /> 关闭聊天弹幕</li>
+					
+					<li> <input type="radio" name="chat" value="1" /> 聊天 </li>
+					<li> <input type="radio" name="chat" value="2"  checked="checked" /> 喇叭 </li>
+				</ul>
+				
+				
+				
+	        	<input  class="lf-chat-input" id="lf-chat-input" type="text"></input>
+	        	<button  class="btn" id="btnSend" type="button">发言</button>			
+			</div>
+			
+			<div class="lf-barrage-set">
+				<ul class="barrage-layout">
+					<li><span>布__局：</span></li>
+					<li> <input type="radio" name="layout" value="LAYOUT_TOP" checked="checked">    顶部 </input></li>
+					<li> <input type="radio" name="layout" value="LAYOUT_BOTTOM" > 底部 </input></li>
+					<li> <input type="radio" name="layout" value="LAYOUT_FULL" >   全屏 </input></li>
+				</ul>
+				
+				<ul class="barrage-alpha">
+					<li><span>透明度：</span></li>
+					<li> <input type="radio" name="alpha" value="1" checked="checked" >    无  </input></li>
+					<li> <input type="radio" name="alpha" value="0.5" >  中  </input></li>
+					<li> <input type="radio" name="alpha" value="0.2" >  高 </input></li>
+				</ul>
+				
+				<ul class="barrage-color">
+					<li><span>颜__色：</span></li>
+					<li class="c-1" > <input type="radio" name="color"  value="#EE00EE" checked="checked" >■</input></li>
+					<li class="c-2" > <input type="radio" name="color" value="#EEB422" >  ■ </input></li>
+					<li class="c-3" > <input type="radio" name="color"  value="#3A5FCD" >  ■ </input></li>
+				</ul>
+			</div>
+		 </div>
+
+		
+		<div class="lf-sendgift">
+			<button  class="btn" id="btnSendGift" type="button">送礼</button>	
+		</div>
+		
+		
+        
+    		
+    </div>
+    
+    
+
+    <script type="text/javascript">
+		
+		var option = {};
+		option["roomId"] = $("#lf-roomid-input").val();
+		option["width"]  = 520;
+		option["height"] = 390;
+		option["swfUrl"] = "LFplayer.swf";
+		option["swfId"]  = "LFplayer"
+		option["flashContentId"] = "lf-video";
+		
+		
+		
+		
+		var initOption = {};
+		initOption["appId"] = 101;
+		initOption["roomId"] = "60809";
+		initOption["ex"] ={};
+		initOption["width"]  = 800;
+		initOption["height"] = 450;
+		initOption["ex"]["roomType"] = 2;
+		initOption["ex"]["showPlugs"] = 0;
+		initOption["ex"]["showSwitchRoom"] = 0;
+		
+		var playOption = {};
+		playOption["titles"]=["超清","高清","表清"];
+		
+		//playOption["alias"] = "stream_alias_921001396_71958";
+		playOption["streamId"] = "stream_alias_921001396_71958";
+		//playOption["streamId"] = "1544C869";
+		playOption["token"] = "98765";
+		playOption["defaultQuality"] = 2;
+		
+			
+		
+		var api = new API();
+	
+		$("#btnCreatVideo").click(function(){	
+			
+
+			creatConfig(initOption);
+			creatVideoDom();
+		
+			api.creatVideo(option);
+			api.bingEvent(api);
+		});
+		
+		
+
+		var ticker=null;
+		
+		function onLoad(){
+		
+			ticker = self.setInterval("listenerView()",100);
+			creatConfig(option);
+			creatVideoDom();
+		
+			api.creatVideo(option);
+			api.bingEvent(api);
+		}
+		
+		
+		function creatVideoDom(){
+			var flashContentHtml = '<div id="lf-video" class="lf-video"> </div>';
+			$("#lf-video-container").html(flashContentHtml);
+		}
+		
+		function creatConfig(option){
+			option["roomType"] = $("input[name='roomtype']:checked").val();
+			
+			switch($("input[name='roomtype']:checked").val()){
+				case "0":
+					option["width"]  =520;
+					option["height"] =390;
+				break
+				
+				default:
+					option["width"]  =800;
+					option["height"] =450;
+				break
+			
+			}
+			
+		}
+		
+		
+			
+			function listenerView(){
+				var w = $(window).width();
+				var h = $(window).height();
+				$(".lf-video-container").css("width",w);
+				$(".lf-video-container").css("height",h);
+			}
+			
+
+		
+		
+     </script>   
+        
+        
+         
+        
+        
+       
+   </body>
+</html>
